@@ -1,0 +1,26 @@
+{
+  "name": "markdown-load-vue",
+  "version": "1.0.0",
+  "description": "markdown transformed vue in vuepress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdmec07120721/markdown-load-vue.git"
+  },
+  "keywords": [
+    "markdown",
+    "vue",
+    "loader",
+    "md",
+    "vuepress"
+  ],
+  "author": "lixiaobing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdmec07120721/markdown-load-vue/issues"
+  },
+  "homepage": "https://github.com/gdmec07120721/markdown-load-vue#readme"
+}
