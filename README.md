@@ -59,11 +59,11 @@ configureWebpack: (config, isServer) => {
 在.md文件中使用
 
 ```md
-:::
-```html
-//...写些vue代码
+    :::
+    ```html
+    //...写些vue代码
 
-```
-:::
+    ```
+    :::
 ```
 
