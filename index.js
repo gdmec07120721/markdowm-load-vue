@@ -1,5 +1,6 @@
 let fs = require('fs');
 let path = require('path');
+let marked = require('marked');
 
 //缓存文件夹
 let cachePath = path.resolve(__dirname, '../../docs/.vuepress/components/Cache');
@@ -20,8 +21,6 @@ if(!fs.existsSync(commonPath)) {
     //异步创建文件
     fs.writeFileSync(path.join(commonPath, 'Democode.vue'), demoCode, 'utf8');
 }
-
-
 
 module.exports = function(content) {
     // 不包含后缀的文件名
@@ -51,7 +50,12 @@ module.exports = function(content) {
 
         let componentName = demoName.replace(/\.vue$/, '');
 
-        return `<Common-Democode>\n  <Cache-${componentName}></Cache-${componentName}>\n  <highlight-code slot="codeText" lang="vue">&emsp;&emsp;&emsp;&emsp;${$3}</highlight-code>\n</Common-Democode>\n`;
+        // vue会误把textarea中的{{}}内容也当成插值处理，所以这里临时替换掉，代码高亮的时候再还原回来
+        $3 = $3.replace(/{{/g, '{ {').replace(/}}/g, '} }');
+
+        return `<Common-Democode>\n  <Cache-${componentName}></Cache-${componentName}>\n  <highlight-code slot="codeText" lang="vue">${$3}</highlight-code>\n</Common-Democode>\n`;
+        //fs.writeFileSync(path.join(cachePath, '1111'), marked($3), 'utf8');
+        //return `<Common-Democode>\n  <Cache-${componentName}></Cache-${componentName}>\n  <div slot="codeText" class="language-html extra-class">${marked($3 || '', {sanitize: true})}</div>\n</Common-Democode>\n`;
 
     });
     

@@ -1,9 +1,5 @@
 <template>
   <div class="code">
-    <div class="code--title">
-      <h2>{{title}}</h2>
-      <small>{{description}}</small>
-    </div>
     <div class="code--demo">
       <div class="code-content">
         <slot></slot>
@@ -17,6 +13,12 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueHighlightJS from 'vue-highlight.js';
+import 'highlight.js/styles/atom-one-dark.css';
+
+Vue.use(VueHighlightJS);
+
 export default {
   name: 'demo-block',
   props: {
@@ -91,7 +93,7 @@ export default {
   }
 
   & + .code {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   &:not(:first-child) {

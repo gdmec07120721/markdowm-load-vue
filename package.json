@@ -1,6 +1,6 @@
 {
   "name": "markdown-load-vue",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "markdown transformed vue in vuepress",
   "main": "index.js",
   "scripts": {
